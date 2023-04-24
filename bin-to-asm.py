@@ -6,7 +6,20 @@ def convert_bin_to_asm(bin_path, output_file):
         binary = f.read()
 
     # Initialize Capstone disassembler
-    md = Cs(CS_ARCH_X86, CS_MODE_64)  # Set the architecture and mode according to your binary
+    print("Select the architecture mode:")
+    print("1. 64-bit")
+    print("2. 32-bit")
+    print("3. 16-bit")
+    mode_choice = int(input("Enter your choice: "))
+    if mode_choice == 1:
+        md = Cs(CS_ARCH_X86, CS_MODE_64)
+    elif mode_choice == 2:
+        md = Cs(CS_ARCH_X86, CS_MODE_32)
+    elif mode_choice == 3:
+        md = Cs(CS_ARCH_X86, CS_MODE_16)
+    else:
+        print("Invalid choice. Defaulting to 64-bit mode.")
+        md = Cs(CS_ARCH_X86, CS_MODE_64)
 
     # Disassemble the binary code into assembly instructions
     asm_code = ''
@@ -20,6 +33,6 @@ def convert_bin_to_asm(bin_path, output_file):
     print(f'Successfully converted {bin_path} to {output_file}.')
 
 # Example usage
-bin_path = 'example.bin'  # Path to the .bin file you want to convert
-output_file = 'output.asm'  # Path to the output file where the assembly code will be written
+bin_path = input("Enter the path to the .bin file you want to convert: ")
+output_file = input("Enter the path to the output file where the assembly code will be written: ")
 convert_bin_to_asm(bin_path, output_file)
