@@ -33,6 +33,6 @@ Install dependencies
 Start the programme
 
 ```bash
-  run with python
+  python main.py
 ```
 
