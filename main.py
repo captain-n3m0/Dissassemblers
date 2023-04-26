@@ -1,6 +1,6 @@
 import sys
-from Dissassemblers.bin_to_asm import convert_bin_to_asm
-from Dissassemblers.exe_to_asm import convert_exe_to_asm
+from bin_to_asm import convert_bin_to_asm
+from exe_to_asm import convert_exe_to_asm
 
 print("Select the conversion type:")
 print("1. Binary to assembly")
